@@ -40,9 +40,8 @@ class Motion:
                 self.single_distance = 10
                 self.ROI_include='include'
                 self.subMethod='MOG'
-                self.pbar=True
+                self.progressb=True
                 
-                #if this is run from the gui it needs a progress bar switch
                 
                 
         def prep(self):
@@ -258,6 +257,9 @@ class Motion:
                 self.frame_count=0
                 self.total_count=0                
                 
+                #if this is run from the gui it needs a progress bar switch
+                if len(sys.argv)> 2: self.progressb = False                
+                
                 print("Processing...")
 
                 while True:
@@ -315,7 +317,7 @@ class Motion:
                                         if abs(self.frameC_announce - self.frame_count) >= self.scan:
                                                 print("%.0f %% completed: %.0f candidate motion frames" % (fc, self.total_count))
                                                 #if running from the gui report progress bar
-                                                if self.pbar: pbar.value=fc
+                                                if self.progressb: pbar.value=fc
                                                 self.frameC_announce=self.frame_count                                                
 
                         #############################
@@ -817,7 +819,7 @@ class Motion:
                                 video_id.append(vid)
                                 
                                 #reset progress bar
-                                pbar.value=0
+                                if self.progressb: pbar.value=0
                                 
                                 #run file
                                 self.inDEST=vid

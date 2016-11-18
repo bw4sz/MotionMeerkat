@@ -197,13 +197,14 @@ if __name__ == "__main__":
      print(len(sys.argv))
      #Read in system arguments if they exist
      if len(sys.argv)> 2:
-          motionVid=motionClass.Motion()                
-          CommandArgs.commandargs(motionVid)
-          #turn off gui progress bar
-          motionVid.pbar=False
+          print("Entering Command Line")
+          motionVid=motionClass.Motion() 
           
+          #process command line
+          CommandArgs.commandargs(motionVid)
+                    
           #create blank list to mimic GUI features.
-          motionVid.wrap(video_id=[],pbar=None)                
+          motionVid.wrap(video_id=[],pbar=[])                
      else:            
           MotionMeerkatApp().run()
           cv2.destroyAllWindows()
