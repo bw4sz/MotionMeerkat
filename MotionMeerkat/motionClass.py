@@ -40,6 +40,10 @@ class Motion:
                 self.single_distance = 10
                 self.ROI_include='include'
                 self.subMethod='MOG'
+                self.pbar=True
+                
+                #if this is run from the gui it needs a progress bar switch
+                
                 
         def prep(self):
                 
@@ -310,7 +314,8 @@ class Motion:
                                         #if the last time the percent complete was printed was within the scan range, don't print again. 
                                         if abs(self.frameC_announce - self.frame_count) >= self.scan:
                                                 print("%.0f %% completed: %.0f candidate motion frames" % (fc, self.total_count))
-                                                pbar.value=fc
+                                                #if running from the gui report progress bar
+                                                if self.pbar: pbar.value=fc
                                                 self.frameC_announce=self.frame_count                                                
 
                         #############################

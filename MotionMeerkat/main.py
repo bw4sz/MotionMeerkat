@@ -199,6 +199,8 @@ if __name__ == "__main__":
      if len(sys.argv)> 2:
           motionVid=motionClass.Motion()                
           CommandArgs.commandargs(motionVid)
+          #turn off gui progress bar
+          motionVid.pbar=False
           
           #create blank list to mimic GUI features.
           motionVid.wrap(video_id=[],pbar=None)                
