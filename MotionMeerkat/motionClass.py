@@ -258,7 +258,7 @@ class Motion:
                 self.total_count=0                
                 
                 #if this is run from the gui it needs a progress bar switch
-                if len(sys.argv)> 2: self.progressb = False                
+                if len(sys.argv)>= 2: self.progressb = False                
                 
                 print("Processing...")
 
