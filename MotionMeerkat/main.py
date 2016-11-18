@@ -199,7 +199,9 @@ if __name__ == "__main__":
      if len(sys.argv)> 2:
           motionVid=motionClass.Motion()                
           CommandArgs.commandargs(motionVid)
-          motionVid.wrap(video_id=motionVid.inDEST,pbar=None)                
+          
+          #create blank list to mimic GUI features.
+          motionVid.wrap(video_id=[],pbar=None)                
      else:            
           MotionMeerkatApp().run()
           cv2.destroyAllWindows()
