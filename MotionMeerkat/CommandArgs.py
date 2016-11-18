@@ -10,10 +10,10 @@ def commandargs(self):
     self.parser.add_argument("--fileD", help="output directory",default="C:/MotionMeerkat")
     self.parser.add_argument("--adapt", help="Adaptive background averaging",action='store_true',default=True)
     self.parser.add_argument("--accAvg", help="Fixed background averaging rate",default=0.35,type=float)
-    self.parser.add_argument("--frameHIT", help="expected percentage of motion frames",default=0.05,type=float)
+    self.parser.add_argument("--frameHIT", help="Expected percentage of motion frames",default=0.05,type=float)
     self.parser.add_argument("--threshT", help="Threshold of movement",default=30,type=int)
     self.parser.add_argument("--drawSmall", help="'Draw' or 'enter' object size",type=str,default='enter')
-    self.parser.add_argument("--minSIZE", help="Minimum size of contour",default=0.0003,type=float)
+    self.parser.add_argument("--minSIZE", help="Minimum size of contour",default=0.05,type=float)
     self.parser.add_argument("--burnin", help="Delay time",default=0,type=int)
     self.parser.add_argument("--scan", help="Scan one of every X frames for motion",default=0,type=int)
     self.parser.add_argument("--frameSET", help="Set frame_rate?",action='store_true',default=False)
@@ -39,5 +39,5 @@ def commandargs(self):
         self.pictures=True
     print "\n"
     
-    #standardize minimum size
-    self.minSIZE=float(self.minSIZE)
+    #standardize minimum size as a percent of the frame
+    self.minSIZE=float(self.minSIZE)/100

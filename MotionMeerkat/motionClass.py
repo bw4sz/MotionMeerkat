@@ -685,7 +685,7 @@ class Motion:
                 if self.set_ROI:        
                         log_report.write("\nSet ROI: %s" % self.ROI_include)        
                 log_report.write("\nMinimum size was drawn or entered?: %s" % self.drawSmall)
-                log_report.write("\nMinimum area: %s" % self.minSIZE)
+                log_report.write("\nMinimum area: %s as a percent of the frame" % (self.minSIZE * 100))
                 if self.burnin > 0:
                         log_report.write("\nBurnin: %s" % self.burnin)
                 if self.scan > 0:
