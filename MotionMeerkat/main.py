@@ -199,7 +199,7 @@ if __name__ == "__main__":
      if len(sys.argv)> 2:
           motionVid=motionClass.Motion()                
           CommandArgs.commandargs(motionVid)
-          motionVid.wrap(video_id=motionVid.inDEST,pbar=NULL)                
+          motionVid.wrap(video_id=motionVid.inDEST,pbar=None)                
      else:            
           MotionMeerkatApp().run()
           cv2.destroyAllWindows()
