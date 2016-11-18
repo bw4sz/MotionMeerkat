@@ -13,14 +13,14 @@ def commandargs(self):
     self.parser.add_argument("--frameHIT", help="expected percentage of motion frames",default=0.05,type=float)
     self.parser.add_argument("--threshT", help="Threshold of movement",default=30,type=int)
     self.parser.add_argument("--drawSmall", help="'Draw' or 'enter' object size",type=str,default='enter')
-    self.parser.add_argument("--minSIZE", help="Minimum size of contour",default=0.003,type=float)
+    self.parser.add_argument("--minSIZE", help="Minimum size of contour",default=0.0003,type=float)
     self.parser.add_argument("--burnin", help="Delay time",default=0,type=int)
     self.parser.add_argument("--scan", help="Scan one of every X frames for motion",default=0,type=int)
     self.parser.add_argument("--frameSET", help="Set frame_rate?",action='store_true',default=False)
     self.parser.add_argument("--frame_rate", help="frames per second",default=1)
-    self.parser.add_argument("--moglearning", help="Speed of MOG background detector, lowering values are more sensitive to movement",default=0.15,type=float)                                
+    self.parser.add_argument("--moglearning", help="Speed of MOG background detector, lowering values are more sensitive to movement",default=0.09,type=float)                                
     self.parser.add_argument("--subMethod", help="Accumulated Averaging [Acc] or Mixture of Gaussian [MOG] background method",default='MOG',type=str)                                
-    self.parser.add_argument("--mogvariance", help="Variance in MOG to select background",default=16,type=int)                                
+    self.parser.add_argument("--mogvariance", help="Variance in MOG to select background",default=25,type=int)                                
     self.parser.add_argument("--set_ROI", help="Set region of interest?",action='store_true',default=False)
     self.parser.add_argument("--windy", help="Enable wind correction",action='store_true',default=False)
     self.parser.add_argument("--windy_min", help="How many minutes of continious movement should be ignored?",default='3',type=int)                                		
@@ -40,4 +40,4 @@ def commandargs(self):
     print "\n"
     
     #standardize minimum size
-    self.minSIZE=float(self.minSIZE)/100
+    self.minSIZE=float(self.minSIZE)

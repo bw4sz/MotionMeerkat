@@ -139,7 +139,7 @@ class ResultsScreen(Screen):
      #generate plots
      def plots(self,motionVid):
           sleep(1)
-          Plotting.combineplots(motionVid.scale_size,motionVid.frame_results,motionVid.minSIZE/100,motionVid.file_destination + "/" + "Diagnostics.png",show=True)
+          Plotting.combineplots(motionVid.scale_size,motionVid.frame_results,motionVid.minSIZE,motionVid.file_destination + "/" + "Diagnostics.png",show=True)
 
      def openfile(self,motionVid):
           startfile(motionVid.file_destination + "/" + "Parameters_Results.log")
@@ -174,7 +174,7 @@ class MyScreenManager(ScreenManager):
           motionVid.q1=3
           motionVid.q2=3
           motionVid.drawSmall='enter'
-          motionVid.minSIZE=0.03
+          motionVid.minSIZE=0.003
           motionVid.set_ROI=False
      except Exception as e:
           traceback.print_exc()
@@ -199,7 +199,7 @@ if __name__ == "__main__":
      if len(sys.argv)> 2:
           motionVid=motionClass.Motion()                
           CommandArgs.commandargs(motionVid)
-          motionVid.wrap()                
+          motionVid.wrap(video_id=motionVid.inDEST,pbar=NULL)                
      else:            
           MotionMeerkatApp().run()
           cv2.destroyAllWindows()
